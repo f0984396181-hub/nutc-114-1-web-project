@@ -3,12 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>抹茶計算機</title>
+    
+    <style>
+        /* =================== 抹茶主題 CSS 樣式 =================== */
+        
+        /* 1. 全局設定與背景 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F8F8F4; /* 淺米白色背景，像茶碗的顏色 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333333; /* 深灰文字 */
+        }
+
+        /* 2. 容器與標題 */
+        .calculator-container {
+            background-color: #FFFFFF; /* 白色面板 */
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4C784C; /* 深抹茶綠標題 */
+            border-bottom: 3px solid #C8E6C9; /* 淺綠色底線 */
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+
+        /* 3. 輸入框與標籤 */
+        div {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #6A8B6A; /* 柔和的抹茶綠文字 */
+        }
+
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 2px solid #C8E6C9; /* 淺抹茶綠邊框 */
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #A7C7A7; /* 聚焦時變深 */
+            outline: none;
+        }
+
+        /* 4. 按鈕樣式 */
+        button {
+            background-color: #8BC34A; /* 鮮豔的抹茶綠按鈕 */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        button:hover {
+            background-color: #689F38; /* 滑鼠懸停時變深 */
+        }
+        
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* 5. 結果顯示 */
+        p {
+            margin-top: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4C784C; /* 深抹茶綠結果標籤 */
+        }
+
+        #ans {
+            color: #496352; /* 可以使用一個對比色來突顯結果，例如柔和的粉色 */
+            font-size: 1.5em;
+            margin-left: 10px;
+        }
+
+        /* ======================================================= */
+    </style>
 </head>
 <body>
-    <h1>jviodfho</h1>
+    <div class="calculator-container">
+        <h1>🍵 計算機</h1>
+        
+        <div>
+            <label>第一個數字</label>
+            <input id="a" type="number"/>
+        </div>
+        <div>
+            <label>第二個數字</label>
+            <input id="b" type="number"/>
+        </div>
+        
+        <button onclick="calculate()">計算</button>
+        
+        <p>計算結果=<span id="ans"></span></p>
+    </div>
+    
+    <script>
+        function calculate() {
+            const inputA = document.getElementById("a");
+            const inputB = document.getElementById("b");
+            // 變數名稱修正為 inputC
+            const inputC = document.getElementById("ans"); 
 
-    <p>jbhgvkjxghdvx</p>
-
+            // 計算邏輯：將字串值轉換為數字後相加
+            inputC.innerText = +inputA.value + +inputB.value;
+        }
+    </script>
 </body>
+
 </html>
